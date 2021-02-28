@@ -1,10 +1,12 @@
 package library.core.entities;
 
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -18,7 +20,9 @@ public class Book {
 	private String name;
 	private Integer pages;
 	private Double price;
-	@ManyToOne
+	
+	@ManyToOne(cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH })
+	@JoinColumn(name = "library_id")
 	private Library library;
 	
 //	@ManyToMany(fetch = FetchType.LAZY,cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH })
@@ -87,7 +91,10 @@ public class Book {
 
 	@Override
 	public String toString() {
-		return "Book [id=" + id + ", name=" + name + ", pages=" + pages + ", price=" + price + "]";
+		return "Book [id=" + id + ", name=" + name + ", pages=" + pages + ", price=" + price + ", library=" + library
+				+ "]";
 	}
+
+
 
 }
