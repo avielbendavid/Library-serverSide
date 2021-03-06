@@ -20,6 +20,10 @@ public class Book {
 	private String name;
 	private Integer pages;
 	private Double price;
+	private Integer quantity;
+//	@ManyToOne(cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH })
+//	@JoinColumn(name = "customer_id")
+//	private Customer customer;
 	
 	@ManyToOne(cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH })
 	@JoinColumn(name = "library_id")
@@ -32,12 +36,14 @@ public class Book {
 	public Book() {
 	}
 
-	public Book(String name, Integer pages, Double price) {
+	public Book(String name, Integer pages, Double price,Integer quantity) {
 		super();
 		this.name = name;
 		this.pages = pages;
 		this.price = price;
+		this.quantity=quantity;
 	}
+	
 	
 	
 
@@ -69,6 +75,14 @@ public class Book {
 		return name;
 	}
 
+	public Integer getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(Integer quantity) {
+		this.quantity = quantity;
+	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -91,9 +105,11 @@ public class Book {
 
 	@Override
 	public String toString() {
-		return "Book [id=" + id + ", name=" + name + ", pages=" + pages + ", price=" + price + ", library=" + library
-				+ "]";
+		return "Book [id=" + id + ", name=" + name + ", pages=" + pages + ", price=" + price + ", quantity=" + quantity
+				+ ", library=" + library + "]";
 	}
+
+	
 
 
 
