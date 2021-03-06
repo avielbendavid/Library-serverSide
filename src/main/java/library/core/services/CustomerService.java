@@ -44,10 +44,9 @@ public class CustomerService {
 			Customer currCustomer = opt.get();
 			if (customerRepository.existsByIdAndBooksId(customerId, book.getId())) {
 				currCustomer.removeBook(book);
-			}
-			else {
+			} else {
 				throw new LibrarySystemException("Sorry, can not return this book [id:" + book.getId()
-				+ "] because customer do not have purchased this book");
+						+ "] because customer do not have purchased this book");
 			}
 		}
 	}
