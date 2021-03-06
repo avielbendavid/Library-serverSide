@@ -78,9 +78,13 @@ public class Customer {
 		this.books.add(book);
 	}
 	
+	public void removeBook(Book book) {
+		this.books.remove(book);
+	}
+	
 	@Override
 	public String toString() {
-		return "Customer [id=" + id + ", name=" + name + ", age=" + age + ", books=" + books + "]";
+		return "Customer [id=" + id + ", name=" + name + ", age=" + age + "]";
 	}
 
 }

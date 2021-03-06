@@ -36,6 +36,9 @@ public class Book {
 	public Book() {
 	}
 
+	
+	
+	
 	public Book(String name, Integer pages, Double price,Integer quantity) {
 		super();
 		this.name = name;
