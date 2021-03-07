@@ -13,7 +13,6 @@ public class LibraryApplication {
 	public static void main(String[] args) {
 		ConfigurableApplicationContext ctx = SpringApplication.run(LibraryApplication.class, args);
 		AdminService adminService = ctx.getBean(AdminService.class);
-		adminService.f();
 	}
 
 }

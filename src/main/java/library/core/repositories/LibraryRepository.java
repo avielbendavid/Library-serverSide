@@ -6,4 +6,5 @@ import library.core.entities.Library;
 
 public interface LibraryRepository extends JpaRepository<Library, Integer> {
 
+	public abstract boolean existsByName(String name);
 }
