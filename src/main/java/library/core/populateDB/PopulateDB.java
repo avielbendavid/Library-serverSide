@@ -36,19 +36,19 @@ public class PopulateDB implements CommandLineRunner{
 
 	@Override
 	public void run(String... args) throws Exception {
-		Book b1 = new Book("aaa",5,Double.valueOf(5),90);
-		Library l1 = new Library("Bat-Yam");
-		l1.addBook(b1);
-		System.out.println("111");
-		libraryRepository.save(l1);
-		Customer c1 = new Customer("Itzhak",55);
-		customerRepository.save(c1);
-		Book b2 = bookRepository.findById(1).get();
-		Customer c2 = customerRepository.findById(1).get();
-		
-		this.customerService.purchaseBook(b2, c2.getId());
-		System.out.println(b2);
-		System.out.println(c2);
+//		Book b1 = new Book("aaa",5,Double.valueOf(5),90);
+//		Library l1 = new Library("Bat-Yam");
+//		l1.addBook(b1);
+//		System.out.println("111");
+//		libraryRepository.save(l1);
+//		Customer c1 = new Customer("Itzhak",55);
+//		customerRepository.save(c1);
+//		Book b2 = bookRepository.findById(1).get();
+//		Customer c2 = customerRepository.findById(1).get();
+//		
+//		this.customerService.purchaseBook(b2, c2.getId());
+//		System.out.println(b2);
+//		System.out.println(c2);
 		
 		
 	}

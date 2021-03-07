@@ -1,5 +1,8 @@
 package library.core.services;
 
-public class ClientService {
+import library.core.exceptions.LibrarySystemException;
 
+public abstract class ClientService {
+
+	abstract boolean login(String email,String password) throws LibrarySystemException;
 }
