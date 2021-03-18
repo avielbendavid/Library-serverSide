@@ -12,7 +12,7 @@ import library.core.repositories.LibraryRepository;
 import library.core.services.CustomerService;
 
 
-//@Component
+@Component
 public class PopulateDB implements CommandLineRunner{
 
 	
@@ -37,12 +37,26 @@ public class PopulateDB implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		Book b1 = new Book("aaa",5,Double.valueOf(5),90);
-		Library l1 = new Library("Bat-Yam");
-		l1.addBook(b1);
-		System.out.println("111");
-		libraryRepository.save(l1);
-		Customer c1 = new Customer("Itzhak",55);
-		customerRepository.save(c1);
+		Library l1 = new Library("Big Library", "Jetusalem");
+		Library l2 = new Library("small Library", "Bat-Yam");
+		Library l3 = new Library("AAA", "Holon");
+		Library l4 = new Library("BBB", "Kiryay-Yam");
+		Library l5 = new Library("CCC", "Kiryat-Moshe");
+		this.libraryRepository.save(l1);
+		this.libraryRepository.save(l2);
+		this.libraryRepository.save(l3);
+		this.libraryRepository.save(l4);
+		this.libraryRepository.save(l5);
+		Customer c1 = new Customer("aaa", 5, "aaa@qqq", "12345");
+		c1.addBook(b1);
+		this.customerRepository.save(c1);
+		
+
+
+//		l1.addBook(b1);
+//		libraryRepository.save(l1);
+//		Customer c1 = new Customer("Itzhak",55);
+//		customerRepository.save(c1);
 //		Book b2 = bookRepository.findById(1).get();
 //		Customer c2 = customerRepository.findById(1).get();
 //		

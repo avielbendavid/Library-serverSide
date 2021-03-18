@@ -1,5 +1,6 @@
 package library.core.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import javax.transaction.Transactional;
@@ -74,6 +75,16 @@ public class CustomerService extends ClientService {
 		} catch (Exception e) {
 			throw new LibrarySystemException("Sorry, can not return this book [id:" + book.getId()
 					+ "] because there was a problem while trying to return this book", e);
+		}
+	}
+
+	public List<Book> getAllCustomerBooks() throws LibrarySystemException {
+		Optional<Customer> opt = this.customerRepository.findById(customerId);
+		if (opt.isPresent()) {
+			Customer customerFromDB = opt.get();
+			return customerFromDB.getBooks();
+		} else {
+			throw new LibrarySystemException("Sorry, can not get customer Books because the customer does not exists");
 		}
 	}
 

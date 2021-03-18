@@ -55,6 +55,9 @@ public class LoginManager implements ApplicationContextAware {
 
 		case ADMIN:
 			AdminService adminService = ctx.getBean(AdminService.class);
+			if (adminService.login(email, password)) {
+				clientService = adminService;
+			}
 			break;
 		case CUSTOMER:
 			CustomerService customerService = ctx.getBean(CustomerService.class);

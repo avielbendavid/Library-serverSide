@@ -3,6 +3,8 @@ package library.core.controllers;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -26,8 +28,8 @@ public class LoginController {
 		this.loginManager = loginManager;
 		this.sessionContext = sessionContext;
 	}
-
-	public ResponseEntity<?> login(ClientType clientType, String email, String password) {
+	@PostMapping("/login/{clientType}/{email}/{password}")
+	public ResponseEntity<?> login(@PathVariable ClientType clientType,@PathVariable String email,@PathVariable String password) {
 		ClientService clientService;
 		try {
 			clientService = this.loginManager.login(clientType, email, password);
@@ -44,5 +46,4 @@ public class LoginController {
 		}
 		return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Sorry, 'EmailAddress' OR 'Password' are incorrect.");
 	}
-
 }

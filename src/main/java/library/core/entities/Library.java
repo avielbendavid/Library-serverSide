@@ -21,7 +21,8 @@ public class Library {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String name;
-	
+	private String city;
+
 	@JsonIgnore
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "library")
 	private List<Book> books;
@@ -45,6 +46,12 @@ public class Library {
 		this.name = name;
 	}
 
+	public Library(String name, String city) {
+		super();
+		this.name = name;
+		this.city = city;
+	}
+
 	public Integer getId() {
 		return id;
 	}
@@ -65,14 +72,22 @@ public class Library {
 		return this.books.remove(book);
 	}
 
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
 	@Override
 	public String toString() {
-		return "Library [id=" + id + ", name=" + name + "]";
+		return "Library [id=" + id + ", name=" + name + ", city=" + city + ", books=" + books + "]";
 	}
-	
+
 	public void addBook(Book book) {
-		if (this.books==null) {
-			this.books= new ArrayList<Book>();
+		if (this.books == null) {
+			this.books = new ArrayList<Book>();
 		}
 		book.setLibrary(this);
 		this.books.add(book);
